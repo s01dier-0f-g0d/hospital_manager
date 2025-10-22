@@ -1,3 +1,7 @@
+# Hospital Officio - Patient Management System
+
+A modern, responsive patient management system built with Django featuring beautiful glassmorphism design and comprehensive patient tracking capabilities.
+
 ## 🏥 Features
 
 ## 🔐 Authentication System
@@ -59,6 +63,7 @@ CSRF Protection: Cross-site request forgery protection
 
 ## 🎯 Core Functionality
 ### Patient Management (base/views.py)
+
 Home: Landing page dashboard
 
 Create Patient: Add new patient records
@@ -70,6 +75,7 @@ Update Patient: Modify patient information
 Delete Patient: Remove patient records
 
 ### Authentication (authen/views.py)
+
 Sign Up: User registration
 
 Sign In: User login
@@ -87,3 +93,37 @@ Sign Out: User logout
 Authentication: Django built-in auth system
 
 Icons: Unicode emojis and symbols
+
+## 🚀 Installation & Setup
+
+### 1. Clone the repository
+
+git clone https://github.com/s01dier-0f-g0d/hospital_manager.git
+
+cd hospital-officio
+
+### 3. Create virtual environment
+
+python -m venv venv
+
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+### 4. Install dependencies
+
+pip install -r requirements.txt
+
+### 5. Run migrations
+
+python manage.py migrate
+
+### 6. Create superuser
+
+python manage.py createsuperuser
+
+### 7. Run development server
+
+python manage.py runserver
+
+### 8. Access the application
+
+http://localhost:8000
