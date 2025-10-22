@@ -106,7 +106,11 @@ cd hospital-officio
 
 python -m venv venv
 
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+On Mac OS: source venv/bin/activate
+
+(OR)
+
+On Windows: venv\Scripts\activate
 
 ### 4. Install dependencies
 
