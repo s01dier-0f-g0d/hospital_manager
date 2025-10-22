@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Hospital Officio</h1>
+        <p class="tagline">Effortlessly manage patients, records, and doctors in one modern dashboard.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'register' %}" class="btn btn-glow">Register New Patient</a>
+            <a href="{% url 'display' %}" class="btn btn-outline">View Patients</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

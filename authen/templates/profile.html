@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container glass-container">
+    <div class="text-center mb-4">
+        <h1 class="hero-title" style="font-size: 2.5rem;">Welcome {{ customer.first_name|upper }} {{ customer.last_name|upper }}</h1>
+        <p class="hero-subtitle" style="color: var(--dark);">Your Profile Dashboard</p>
+    </div>
+    
+    <div class="profile-card">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                {{ customer.first_name|first|upper }}{{ customer.last_name|first|upper }}
+            </div>
+            <div class="profile-info">
+                <h2>{{ customer.first_name }} {{ customer.last_name }}</h2>
+                <p class="profile-email">{{ customer.email }}</p>
+                <p class="profile-username">@{{ customer.username }}</p>
+            </div>
+        </div>
+        
+        <div class="profile-stats">
+            <div class="stat-item">
+                <span class="stat-label">Member Since</span>
+                <span class="stat-value"> {{ customer.date_joined }} </span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Status</span>
+                <span class="stat-value active">Active</span>
+            </div>
+        </div>
+        
+        <div class="btn-group mt-4">
+            <a href="{% url 'updateProfile' %}" class="btn btn-primary">Update Profile</a>
+            <a href="{% url 'updatePass' %}" class="btn btn-warning">Update Password</a>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

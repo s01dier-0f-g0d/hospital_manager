@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Hospital</title>
+</head>
+<body>
+    {% include 'nav.html' %}
+<div id="messages">
+    {% for msg in messages %}
+    <div class="message-popup message-{{ msg.tags|default:'info' }}">
+        <div class="message-icon">
+            {% if 'success' in msg.tags %}✔{% elif 'error' in msg.tags %}✖{% elif 'warning' in msg.tags %}⚠{% else %}ℹ{% endif %}
+        </div>
+        <div class="message-body">{{ msg }}</div>
+    </div>
+    {% endfor %}
+</div>
+
+        
+    <script>
+setTimeout(() => {
+    document.querySelectorAll('.message-popup').forEach(p => {
+        p.classList.add('fade-out');
+        setTimeout(() => p.remove(), 300);
+    });
+}, 3000);
+</script>
+    <div class="content">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+</body>
+</html>

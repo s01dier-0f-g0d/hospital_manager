@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <form method="GET">
+        {% csrf_token %}
+        <input type="text" name="q" placeholder="Search patients..." value="{{ search|default:'' }}">
+        <button type="submit" class="btn btn-glow">Search</button>
+    </form>
+
+    <div class="btn-group" style="text-align:center; margin-top:20px;">
+        <a href="{% url 'register' %}" class="btn btn-glow">Register New Patient</a>
+    </div>
+
+    <ul>
+        {% for i in data %}
+        <li>
+            <h2>Patient: {{ i.name }}</h2>
+            <p><strong>Age: {{ i.age }}</strong></p>
+            <p><strong>Disease: {{ i.disease }}</strong></p>
+            <p><strong>Doctor Assigned: {{ i.doctor_assigned }}</strong></p>
+            <p><strong>Room No: {{ i.room_number }}</strong></p>
+            <a href="{% url 'update' i.id %}"><button>Edit</button></a>
+            <a href="{% url 'remove' i.id %}"><button>Delete</button></a>
+        </li>
+        {% empty %}
+        <p style="text-align:center;">No patient records found.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
