@@ -1,9 +1,0 @@
-{% extends 'main.html' %}
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update</button>
-</form>
-<a href="{% url 'display' %}"><button type="button">Cancel</button></a>
-{% endblock %}

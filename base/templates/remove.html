@@ -1,9 +1,0 @@
-{% extends 'main.html' %}
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <h1>Are you sure you want to remove {{ data.name }}’s record?</h1>
-    <button type="submit">Yes, Remove</button>
-</form>
-<a href="{% url 'display' %}"><button type="button">Cancel</button></a>
-{% endblock %}
