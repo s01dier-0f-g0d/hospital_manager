@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="content-wrapper fade-in">
+    <div class="glass-container confirmation-dialog slide-up">
+        <h1>🗑️ Delete Patient Record</h1>
+        <h4>Are you sure you want to remove <strong>{{ data.name }}</strong>'s record?</h4>
+        
+        <div class="data-item text-center">
+            <p><strong>Name:</strong> {{ data.name }}</p>
+            <p><strong>Age:</strong> {{ data.age }}</p>
+            <p><strong>Disease:</strong> {{ data.disease }}</p>
+            <p><strong>Doctor:</strong> {{ data.doctor_assigned }}</p>
+        </div>
+        
+        <form method="POST">
+            {% csrf_token %}
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-danger">🗑️ Yes, Remove</button>
+                <a href="{% url 'display' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

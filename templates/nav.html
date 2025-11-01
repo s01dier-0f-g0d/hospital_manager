@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="nav-logo">🏥 Hospital Officio</div>
+    <div class="nav-right">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'home' %}" class="nav-link">🏠 Home</a>
+        <a href="{% url 'read_disease' %}" class="nav-link">🩺 Diseases</a>
+        <a href="{% url 'profile' %}" class="nav-link">👤 Profile</a>
+        <a href="{% url 'signout' %}" class="nav-link logout">🚪 Logout</a>
+        {% else %}
+        <a href="{% url 'signin' %}" class="nav-link">🔑 Login</a>
+        <a href="{% url 'signup' %}" class="nav-link register">📝 Register</a>
+        {% endif %}
+    </div>
+</nav>

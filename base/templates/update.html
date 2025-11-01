@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="content-wrapper fade-in">
+    <div class="glass-container form-container slide-up">
+        <div class="text-center mb-4">
+            <h1 class="hero-title" style="font-size: 2.5rem;">Update Patient Record</h1>
+            <p class="hero-subtitle" style="color: var(--dark);">Edit patient information</p>
+        </div>
+        
+        <form method="POST" enctype="multipart/form-data" class="auth-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary">💾 Update Record</button>
+                <a href="{% url 'display' %}" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

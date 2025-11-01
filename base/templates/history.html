@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="content-wrapper fade-in">
+    <div class="glass-container slide-up">
+        <form method="GET" class="search-form">
+            {% csrf_token %}
+            <input type="text" name="q" placeholder="🔍 Search patients..." value="{{ search|default:'' }}" class="form-control">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <div class="btn-group">
+            <a href="{% url 'home' %}" class="btn btn-primary">🏠 Home</a>
+            <a href="{% url 'display' %}" class="btn btn-secondary">📋 Active Patients</a>
+        </div>
+
+        <div class="data-list">
+            {% for i in data %}
+            <div class="data-item">
+                <h2>👤 {{ i.name }}</h2>
+                <p><strong>🎂 Age:</strong> {{ i.age }}</p>
+                <p><strong>🩺 Disease:</strong> {{ i.disease }}</p>
+                <p><strong>👨‍⚕️ Doctor Assigned:</strong> {{ i.doctor_assigned }}</p>
+                <p><strong>🏢 Room No:</strong> {{ i.room_number }}</p>
+                
+                {% if i.doc_image %}
+                <div class="media-container">
+                    <strong>📷 Image:</strong>
+                    <img src="{{ i.patient_image.url }}" class="media-item" height="150" width="150" alt="{{ i.name }}">
+                </div>
+                {% endif %}
+                
+                <div class="action-buttons">
+                    <a href="{% url 'restore' i.id %}" class="btn btn-success">🔄 Restore</a>
+                    <a href="{% url 'display' %}" class="btn btn-secondary">📋 Back to Active</a>
+                </div>
+            </div>
+            {% empty %}
+            <div class="text-center">
+                <h3>📭 No deleted records found.</h3>
+                <p>All patient records are currently active.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
