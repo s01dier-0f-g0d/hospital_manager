@@ -98,7 +98,7 @@ Icons: Unicode emojis and symbols
 
 ### 1. Clone the repository
 
-git clone https://github.com/s01dier-0f-g0d/hospital_manager.git
+git clone https://github.com/darshan-m0/hospital_manager.git
 
 cd hospital-officio
 
